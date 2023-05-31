@@ -1,11 +1,12 @@
 import React from 'react'
 import Post from '../post/Post'
+import styles from './PostList.module.css'
 
 
-const PostList = ({posts}) => {
+const PostList = ({posts, title}) => {
   return (
-    <div className='post_list'>
-        <h1>List of posts</h1>
+    <div className={styles.post_list}>
+        <h1>{title}</h1>
         {posts.map(post =>
             <Post post={post} key={post.id} />
         )}
