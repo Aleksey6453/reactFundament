@@ -1,13 +1,13 @@
 import React from 'react'
-import styles from './Post.module.css'
+import styles from './PostItem.module.css'
 
-const Post = (props) => {
+const PostItem = (props) => {
  
   return (
        <div className={styles.post}>
             <div className={styles.half_left_post}>
                 <h2>{props.post.id}.{props.post.title}</h2>
-                <p>{props.post.text}</p>
+                <p>{props.post.body}{props.post.id}</p>
             </div>
             <div className={styles.half_right_post}>
                 <button className='btn'>Del</button>
@@ -16,4 +16,4 @@ const Post = (props) => {
   )
 }
 
-export default Post
+export default PostItem

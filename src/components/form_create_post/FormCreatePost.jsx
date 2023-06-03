@@ -3,13 +3,30 @@ import MyBtn from '../UI/button/MyBtn'
 import MyInput from '../UI/input/MyInput'
 import styles from './FormCreatePost.module.css'
 
-const FormCreatePost = () => {
+
+const FormCreatePost = ({posts, setPosts}) => {
+    // const [posts, setPosts] = React.useState([
+    //     {id:1, title:'Post 1', text:'Text about Post1'},
+    //     {id:2, title:'Post 2', text:'Text about Post2'},
+    //     {id:3, title:'Post 3', text:'Text about Post3'},
+    // ])
     const [title, setTitle] = React.useState('')
+    const [body, setBody] = React.useState('')
     const bodyInpurRef = React.useRef()
+    // const addNewPost = (e) => {
+    //     e.preventDefault()
+    //     console.log(title, body)
+    //     // console.log(bodyInpurRef.current.value)
+    // }
     const addNewPost = (e) => {
         e.preventDefault()
-        console.log(title)
-        console.log(bodyInpurRef.current.value)
+        const newPost = {
+            id: Date.now(),
+            title,
+            body
+        }
+        console.log(newPost)
+        setPosts({...posts, newPost})
     }
   return (
     <form className={styles.wrap}>
@@ -24,10 +41,15 @@ const FormCreatePost = () => {
                  value={title}
                  placeholder='title of post...' 
                  />
-        <MyInput ref={bodyInpurRef}
+        <MyInput onChange={e => setBody(e.target.value)}
+                 type="text" 
+                 value={body}
+                 placeholder='body of post...' 
+                 />
+        {/* <MyInput ref={bodyInpurRef}
                 type="text" 
                 placeholder='text about post...'
-                 />
+                 /> */}
         <MyBtn type='submit' onClick={addNewPost}>Create</MyBtn>
     
     </form>

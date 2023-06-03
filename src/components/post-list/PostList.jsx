@@ -1,5 +1,5 @@
 import React from 'react'
-import Post from '../post/Post'
+import PostItem from '../postItem/PostItem'
 import styles from './PostList.module.css'
 
 
