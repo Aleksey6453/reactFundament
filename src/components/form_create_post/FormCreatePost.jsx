@@ -4,6 +4,7 @@ import MyInput from '../UI/input/MyInput'
 import styles from './FormCreatePost.module.css'
 
 
+
 const FormCreatePost = ({posts, setPosts}) => {
     // const [posts, setPosts] = React.useState([
     //     {id:1, title:'Post 1', text:'Text about Post1'},
@@ -50,7 +51,7 @@ const FormCreatePost = ({posts, setPosts}) => {
                 type="text" 
                 placeholder='text about post...'
                  /> */}
-        <MyBtn type='submit' onClick={addNewPost}>Create</MyBtn>
+        <MyBtn>C</MyBtn>
     
     </form>
   )
