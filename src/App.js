@@ -2,8 +2,6 @@ import React from 'react';
 import './style/GlobalStyle.css'
 import PostList from './components/post-list/PostList'
 import FormCreatePost from './components/form_create_post/FormCreatePost';
-import MyInput from './components/UI/input/MyInput';
-import MyBtn from './components/UI/button/MyBtn';
 import PostForm from './components/form_create_post/PostForm';
 
 function App() {
@@ -17,6 +15,9 @@ function App() {
   const createPost = (newPost) => {
       setPosts([...posts, newPost])
   }
+  const removePost = (post) => {
+      setPosts(posts.filter(p => p.id !== post.id))
+  }
 
   return (
     <div className="App">
@@ -26,7 +27,10 @@ function App() {
                       setMakePost={setMakePost}
                       /> */}
       <PostForm create={createPost} />
-      <PostList posts={posts} title={'Fucking List of posts'} />
+      {posts.length !== 0
+          ? <PostList remove={removePost} posts={posts} title={'Fucking List of posts'} />
+          : <div><h2> Were is empty now :( </h2></div>
+      }
     </div>
   );
 }

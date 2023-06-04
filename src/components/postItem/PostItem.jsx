@@ -1,4 +1,5 @@
 import React from 'react'
+import MyBtn from '../UI/button/MyBtn'
 import styles from './PostItem.module.css'
 
 const PostItem = (props) => {
@@ -10,7 +11,7 @@ const PostItem = (props) => {
                 <p>{props.post.body}{props.number}</p>
             </div>
             <div className={styles.half_right_post}>
-                <button className='btn'>Del</button>
+                <MyBtn onClick={() => props.remove(props.post)}>Del</MyBtn>
             </div>
       </div>
   )
