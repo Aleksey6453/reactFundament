@@ -3,31 +3,21 @@ import MyBtn from '../UI/button/MyBtn'
 import MyInput from '../UI/input/MyInput'
 import styles from './FormCreatePost.module.css'
 
-
-
-const FormCreatePost = ({posts, setPosts}) => {
-    // const [posts, setPosts] = React.useState([
-    //     {id:1, title:'Post 1', text:'Text about Post1'},
-    //     {id:2, title:'Post 2', text:'Text about Post2'},
-    //     {id:3, title:'Post 3', text:'Text about Post3'},
-    // ])
-    const [title, setTitle] = React.useState('')
-    const [body, setBody] = React.useState('')
-    const bodyInpurRef = React.useRef()
+const FormCreatePost = ({posts, setPosts, makePost, setMakePost}) => {
+    // const [makePost, setMakePost] = React.useState({title:'', body:''})
+    // const [title, setTitle] = React.useState('')
+    // const [body, setBody] = React.useState('')
+    const bodyInputRef = React.useRef()
     // const addNewPost = (e) => {
     //     e.preventDefault()
     //     console.log(title, body)
-    //     // console.log(bodyInpurRef.current.value)
+    //     // console.log(bodyInputRef.current.value)
     // }
     const addNewPost = (e) => {
         e.preventDefault()
-        const newPost = {
-            id: Date.now(),
-            title,
-            body
-        }
-        console.log(newPost)
-        setPosts({...posts, newPost})
+        setPosts([...posts, {...makePost, id: Date.now()}])
+        setMakePost({title:'', body:''})
+      
     }
   return (
     <form className={styles.wrap}>
@@ -37,21 +27,21 @@ const FormCreatePost = ({posts, setPosts}) => {
         {/* <input ref={bodyInpurRef} 
                 type="text" 
                 placeholder='text about post...' /> */}
-        <MyInput onChange={e => setTitle(e.target.value)}
+        <MyInput onChange={e => {setMakePost({...makePost, title: e.target.value})}}
                  type="text" 
-                 value={title}
+                 value={makePost.title}
                  placeholder='title of post...' 
                  />
-        <MyInput onChange={e => setBody(e.target.value)}
+        <MyInput onChange={e => {setMakePost({...makePost, body: e.target.value})}}
                  type="text" 
-                 value={body}
+                 value={makePost.body}
                  placeholder='body of post...' 
                  />
         {/* <MyInput ref={bodyInpurRef}
                 type="text" 
                 placeholder='text about post...'
                  /> */}
-        <MyBtn>C</MyBtn>
+        <MyBtn onClick={addNewPost}>Make</MyBtn>
     
     </form>
   )
