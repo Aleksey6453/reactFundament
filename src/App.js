@@ -27,9 +27,12 @@ function App() {
                       setMakePost={setMakePost}
                       /> */}
       <PostForm create={createPost} />
-      {posts.length !== 0
+      {posts.length
           ? <PostList remove={removePost} posts={posts} title={'Fucking List of posts'} />
-          : <div><h2> Were is empty now :( </h2></div>
+          : <div><h2> Were is empty now :( </h2>
+          <br />
+          <img src="/7.jpg" alt="photo" style={{width: '100%'}}/>
+          </div>
       }
     </div>
   );
