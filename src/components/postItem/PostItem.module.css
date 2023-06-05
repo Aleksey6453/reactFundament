@@ -6,6 +6,7 @@
     padding: 20px;
     margin: 20px;
     padding-right: 0;
+    min-width: 300px;
 }
 
 .half_left_post{

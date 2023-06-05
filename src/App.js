@@ -3,6 +3,7 @@ import './style/GlobalStyle.css'
 import PostList from './components/post-list/PostList'
 import FormCreatePost from './components/form_create_post/FormCreatePost';
 import PostForm from './components/form_create_post/PostForm';
+import MySelect from './components/UI/select/MySelect';
 
 function App() {
   const [posts, setPosts] = React.useState([
@@ -10,13 +11,19 @@ function App() {
     {id:2, title:'Post', body:'Text about Post'},
     {id:3, title:'Post', body:'Text about Post'},
   ])
- 
+
+  const [selectedSort, setSelectedSort] = React.useState('')
   const [makePost, setMakePost] = React.useState({title:'', body:''})
   const createPost = (newPost) => {
       setPosts([...posts, newPost])
   }
   const removePost = (post) => {
       setPosts(posts.filter(p => p.id !== post.id))
+  }
+
+  const sortPost = (sort) => {
+    setSelectedSort(sort)
+    console.log(sort)
   }
 
   return (
@@ -27,11 +34,23 @@ function App() {
                       setMakePost={setMakePost}
                       /> */}
       <PostForm create={createPost} />
+      <hr style={{margin:'10px'}}/>
+      <div>
+        <MySelect 
+          value={selectedSort}
+          onChange={sortPost}
+          defaultValue='sort by'
+          options={[
+            {value: 'title', name: 'by title'},
+            {value: 'body', name: 'by description'}
+          ]}
+        />
+      </div>
       {posts.length
           ? <PostList remove={removePost} posts={posts} title={'Fucking List of posts'} />
           : <div><h2> Were is empty now :( </h2>
           <br />
-          <img src="/7.jpg" alt="photo" style={{width: '100%'}}/>
+          <img src="/1.jpg" alt="photo" style={{width: '100%'}}/>
           </div>
       }
     </div>
