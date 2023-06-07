@@ -8,6 +8,7 @@
     font-weight: bold;
     cursor: pointer;
     min-width: 200px;
+    margin-left: 0;
 }
 
 .select:hover{
