@@ -1,11 +1,9 @@
 import React from 'react';
 import './style/GlobalStyle.css'
 import PostList from './components/post-list/PostList'
-import FormCreatePost from './components/form_create_post/FormCreatePost';
 import PostForm from './components/form_create_post/PostForm';
-import MySelect from './components/UI/select/MySelect';
-import MyInput from './components/UI/input/MyInput';
 import PostFilter from './components/postFilter/PostFilter';
+import MyModal from './components/UI/myModal/MyModal';
 
 function App() {
   const [posts, setPosts] = React.useState([
@@ -40,12 +38,10 @@ function App() {
 
   return (
     <div className="App">
-      {/* <FormCreatePost posts={posts} 
-                      setPosts={setPosts} 
-                      makePost={makePost} 
-                      setMakePost={setMakePost}
-                      /> */}
-      <PostForm create={createPost} />
+      <MyModal>
+         <PostForm create={createPost} />
+      </MyModal>
+      
       <hr style={{margin:'10px'}}/>
       <PostFilter filter={filter} setFilter={setFilter}/>
       <PostList remove={removePost} posts={sortedAndSearchedPosts} title={'Fucking List of posts'} />
