@@ -37,10 +37,6 @@ function App() {
       setPosts(posts.filter(p => p.id !== post.id))
   }
 
-  // const sortPost = (sort) => {
-  //   setSelectedSort(sort)
-  //   console.log(sort)
-  // }
 
   return (
     <div className="App">
@@ -52,13 +48,7 @@ function App() {
       <PostForm create={createPost} />
       <hr style={{margin:'10px'}}/>
       <PostFilter filter={filter} setFilter={setFilter}/>
-      {sortedAndSearchedPosts.length
-          ? <PostList remove={removePost} posts={sortedAndSearchedPosts} title={'Fucking List of posts'} />
-          : <div><h2> Were is empty now :( </h2>
-          <br />
-          <img src="/7.jpg" alt="photo" style={{width: '100%'}}/>
-          </div>
-      }
+      <PostList remove={removePost} posts={sortedAndSearchedPosts} title={'Fucking List of posts'} />
     </div>
   );
 }

@@ -4,6 +4,15 @@ import styles from './PostList.module.css'
 
 
 const PostList = ({posts, title, remove}) => {
+  if (!posts.length){
+      return(
+        <div><h2> Were is empty now :( </h2>
+          <br />
+          <img src="/1.jpg" alt="photo" style={{width: '100%'}}/>
+          </div>
+      )
+  }
+
   return (
     <div className={styles.post_list}>
       <h1>{title}</h1>
