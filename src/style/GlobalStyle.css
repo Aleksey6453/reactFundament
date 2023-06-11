@@ -70,3 +70,19 @@
   display: flex;
   flex-direction: column;
 }
+
+.post-enter {
+  opacity: 0;
+}
+.post-enter-active {
+  transform: translateX(1000px);
+  transition: all .5s ease-in;
+}
+.post-exit {
+  opacity: 1;
+}
+.post-exit-active {
+  transform: translateX(-1000px);
+  transition: all .5s ease-in;
+}
+
