@@ -17,6 +17,11 @@ function App() {
   const sortedAndSearchedPosts = usePosts(posts, filter.sort, filter.query)
 
   const [makePost, setMakePost] = React.useState({title:'', body:''})
+
+  React.useEffect(()=> {
+    fetchPost()
+  }, [])
+
   const createPost = (newPost) => {
       setPosts([...posts, newPost])
       setModal(false)
