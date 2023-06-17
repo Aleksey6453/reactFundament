@@ -40,7 +40,7 @@
       background-color: aquamarine;
   }
   .btn:active {
-    background-color: lime;
+    background-color: white;
     border-radius: 15px;
   }
 
@@ -71,6 +71,18 @@
   flex-direction: column;
 }
 
+.gorizontal{
+  display: flex;
+  flex-direction: row;
+}
+
+.pagination{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 80%;
+}
+
 .post-enter {
   opacity: 0;
 }
@@ -90,4 +102,11 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+}
+
+.page_current{
+  border: 3px solid black;
+  font-weight: bold;
+  background-color: #35e7cc;
+  color: #000;
 }
