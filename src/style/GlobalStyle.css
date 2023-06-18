@@ -20,7 +20,8 @@
     border-radius: 10px;
     cursor: pointer;
     display: flex;
-    align-self: center;
+    justify-content: center;
+    align-items: center;
     font-size: 16px;
     padding: 15px 40px;
     margin: 20px;
@@ -30,6 +31,7 @@
     font-family: Century Gothic;
     font-weight: 700;
     color: aquamarine;
+    /* max-width: 95px; */
   }
   .btn:hover {
       text-decoration: none;
@@ -109,4 +111,12 @@
   font-weight: bold;
   background-color: #35e7cc;
   color: #000;
+}
+
+.ml_10 {
+  margin-left: 10px;
+}
+
+.max_w_95 {
+  max-width: 95px;
 }

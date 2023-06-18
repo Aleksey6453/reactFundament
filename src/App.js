@@ -37,7 +37,7 @@ function App() {
   console.log(totalPages)
   React.useEffect(()=> {
     fetchPost()
-  }, [])
+  }, [page])
 
   const createPost = (newPost) => {
       setPosts([...posts, newPost])
@@ -50,13 +50,13 @@ function App() {
 
   const changePage = (page) => {
     setPage(page)
-    fetchPost()
+    // fetchPost()
   }
 
 
   return (
     <div className="App">
-      <button className='btn' onClick={fetchPost}>get post</button>
+      <button className='btn ml_10' onClick={fetchPost}>get post</button>
       <MyBtn onClick={()=>setModal(true)}>
         Open modal
       </MyBtn>
@@ -80,8 +80,8 @@ function App() {
             <button key = {p}
                     onClick= {()=> changePage(p)} 
                     className={page === p ?
-                      'btn page_current' :
-                      'btn'
+                      'btn page_current max_w_95' :
+                      'btn max_w_95'
              }>{p}</button>
             )
         }
