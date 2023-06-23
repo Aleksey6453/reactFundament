@@ -1,16 +1,17 @@
 import React from 'react';
-import './style/GlobalStyle.css'
-import PostList from './components/post-list/PostList'
-import PostForm from './components/form_create_post/PostForm';
-import PostFilter from './components/postFilter/PostFilter';
-import MyModal from './components/UI/myModal/MyModal';
-import MyBtn from './components/UI/button/MyBtn';
-import { usePosts } from './hooks/usePosts';
-import PostService from './API/PostService';
-import Loader from './components/UI/loader/Loader';
-import { useFetching } from './hooks/useFetching';
-import { getPageCount} from './utils/pages';
-import Pagination from './components/UI/pagination/Pagination';
+import '../style/GlobalStyle.css'
+import PostList from '../components/post-list/PostList'
+import PostForm from '../components/form_create_post/PostForm';
+import PostFilter from '../components/postFilter/PostFilter';
+import MyModal from '../components/UI/myModal/MyModal';
+import MyBtn from '../components/UI/button/MyBtn';
+import { usePosts } from '../hooks/usePosts';
+import PostService from '../API/PostService';
+import Loader from '../components/UI/loader/Loader';
+import { useFetching } from '../hooks/useFetching';
+import { getPageCount} from '../utils/pages';
+import Pagination from '../components/UI/pagination/Pagination';
+import Menu from '../components/menu/Menu';
 
 
 function PostsPages() {
@@ -53,6 +54,7 @@ function PostsPages() {
 
   return (
     <div className="App">
+      <Menu />
       <button className='btn ml_10' onClick={fetchPost}>get post</button>
       <MyBtn onClick={()=>setModal(true)}>
         Open modal

@@ -12,15 +12,23 @@ import Loader from './components/UI/loader/Loader';
 import { useFetching } from './hooks/useFetching';
 import { getPageCount, getPagesArray } from './utils/pages';
 import Pagination from './components/UI/pagination/Pagination';
+import { BrowserRouter, Route, Routes} from 'react-router-dom';
+import AboutPages from './pages/AboutPages';
+import PostsPages from './pages/PostsPages';
+import HomePages from './pages/HomePages';
+
 
 
 function App() {
   return (
-    <div>
-      <h1>
-        Home
-      </h1>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<HomePages />} />
+        <Route path='/about' element={<AboutPages />} />
+        <Route path='/posts' element={<PostsPages />} />
+      </Routes>
+    </BrowserRouter>
+
   )
 }
 
