@@ -1,13 +1,15 @@
 import React from 'react'
 import styles from './Menu.module.css'
-import {Link} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
+
+
 
 const Menu = () => {
   return (
     <div className={styles.wrap}>
-        <Link className={styles.link} to="/">Home</Link>
-        <Link className={styles.link} to="/about">About</Link>
-        <Link className={styles.link} to="/posts">Posts</Link>
+        <NavLink className={styles.link} style={({isActive})=>({color: isActive ? 'white' : '#611A8B'})} to="/">Home</NavLink>
+        <NavLink className={styles.link} style={({isActive})=>({color: isActive ? 'white' : '#611A8B'})} to="/about">About</NavLink>
+        <NavLink className={styles.link} style={({isActive})=>({color: isActive ? 'white' : '#611A8B'})} to="/posts">Posts</NavLink>
     </div>
   )
 }

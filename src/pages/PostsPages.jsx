@@ -11,7 +11,7 @@ import Loader from '../components/UI/loader/Loader';
 import { useFetching } from '../hooks/useFetching';
 import { getPageCount} from '../utils/pages';
 import Pagination from '../components/UI/pagination/Pagination';
-import Menu from '../components/menu/Menu';
+
 
 
 function PostsPages() {
@@ -54,7 +54,6 @@ function PostsPages() {
 
   return (
     <div className="App">
-      <Menu />
       <button className='btn ml_10' onClick={fetchPost}>get post</button>
       <MyBtn onClick={()=>setModal(true)}>
         Open modal
